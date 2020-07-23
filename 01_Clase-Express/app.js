@@ -13,16 +13,17 @@ app.use(express.urlencoded({ extended: true }))
 
 
 //Creamos nuestro primer endpoint escuchando la ruta inicial '/'
+//  CRUD (Read)
 app.get('/', function (request, response) {
     response.send('Hello world');
 });
 
-//CRUD 
+//CRUD (Create)
 app.post('/users', function (request, response) {
     response.status(200).send(request.body.email);
 });
 
-//CRUD (Update partial)
+//CRUD (Update)
 app.put('/users', function (request, response) {
     response.status(200).send(request.body.email);
 });
@@ -37,11 +38,12 @@ app.delete('/users', function (request, response) {
     response.status(200).send(request.body.email);
 });
 
-
+//Podemos recibir parametros a traves de la URL
 app.get('/dogs?', function (req, res) {
     res.send(req.query.name);
 });
 
+//Podemos
 app.get('/dogs:id', function (req, res) {
     res.send(req.params.id);
 });
