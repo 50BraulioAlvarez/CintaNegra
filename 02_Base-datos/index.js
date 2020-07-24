@@ -61,7 +61,7 @@ app.patch('/api/v1/users/:userid', async (req, res) => {
 //DELETE
 app.delete('/api/v1/users/:userid', async (req, res) => {
     try {
-       await User.findByIdAndUpdate(req.params.userid, { $set: { is_active: false } }, { new: true })
+        await User.findByIdAndUpdate(req.params.userid, { $set: { is_active: false } }, { new: true })
         ReadableStream.status(200).send({ message: 'Usario eliminado' })
     } catch (error) {
         console.error(error)
